@@ -2,8 +2,18 @@
 
 require_relative "../lib/nishitetsu"
 
+bus_stops = {
+  "福岡女子大前" => "0001,660102",
+  "天神三丁目" => "0000,D00118",
+}
+
 api = Api.new
-html = api.live_departures
+
+html = api.live_departures(
+  from: bus_stops["福岡女子大前"],
+  to: bus_stops["天神三丁目"]
+)
+
 dp = DeparturesParser.new(html)
 
 puts

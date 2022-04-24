@@ -6,18 +6,18 @@ class Api
   end
 
   # Returns HTML
-  def live_departures
-    Net::HTTP.get(URI(departures_url))
+  def live_departures(from:, to:)
+    Net::HTTP.get(URI(departures_url(from: from, to: to)))
   end
 
   private
 
-  def departures_url
+  def departures_url(from:, to:)
     params = {
       f_zahyo_flg: 0,
-      f_list: "0001,660102",
+      f_list: from,
       t_zahyo_flg: 0,
-      t_list: "0000,L00001",
+      t_list: to,
       rightnow_flg: 2,
       stime_flg: 1,
       jkn_busnavi: 1,
