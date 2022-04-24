@@ -3,11 +3,14 @@
 require_relative "../lib/nishitetsu"
 
 api = Api.new
-departures = Departure.parse(api.live_departures)
+html = api.live_departures
+dp = DeparturesParser.new(html)
 
 puts
+puts "From: #{dp.journey_start}, To: #{dp.journey_end}"
+puts
 
-departures.each do |d|
+dp.departures.each do |d|
   expected = d.expected_departure.strftime("%H:%M")
   arrival = d.expected_arrival.strftime("%H:%M")
   puts [

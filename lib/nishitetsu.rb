@@ -7,3 +7,4 @@ require "nokogiri"
 
 require_relative "./api"
 require_relative "./departure"
+require_relative "./departures_parser"

@@ -5,13 +5,6 @@ class Departure
     @node = node
   end
 
-  def self.parse(html)
-    doc = Nokogiri::HTML(html)
-    doc.css("div.cassette")
-      .map { |node| Departure.new(node) }
-      .sort { |a,b| a.expected_in <=> b.expected_in }
-  end
-
   def route_number
     node.css("li.num").text  # e.g. 23
   end
