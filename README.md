@@ -14,6 +14,14 @@ To build from scratch
 - Commit the Gemfile.lock
 - Replace references to Gemfile.lock in Dockerfile and makefile
 
+## Heroku setup
+
+```
+heroku apps:create nishitetsu-bus
+heroku stack:set container
+git push heroku main
+```
+
 API base:
 
     http://busnavi01.nishitetsu.ne.jp/

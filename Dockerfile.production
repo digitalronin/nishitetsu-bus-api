@@ -1,0 +1,16 @@
+FROM ruby:3.1.2-alpine
+
+ARG APPUSER=appuser
+
+WORKDIR /app
+
+COPY Gemfile Gemfile.lock web.rb /app/
+COPY lib/ /app/lib/
+COPY views/ /app/views/
+
+RUN bundle install
+
+RUN adduser -D $APPUSER
+USER $APPUSER
+
+CMD ["./web.rb"]
