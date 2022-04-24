@@ -4,7 +4,10 @@ ARG APPUSER=appuser
 
 RUN apk add \
   bash \
-  gettext
+  gettext \
+  tzdata
+
+RUN cp /usr/share/zoneinfo/Japan /etc/localtime
 
 WORKDIR /app
 
