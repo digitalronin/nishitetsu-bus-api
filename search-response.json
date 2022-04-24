@@ -1,0 +1,23 @@
+{
+  "Status": "0",
+  "Err_Msg": null,
+  "AllRowCount": 1,
+  "AllPageCount": "1",
+  "Cnt": 1,
+  "List": [
+    {
+      "id": "0001,660102",
+      "noribacd": null,
+      "value": "福岡女子大前(福岡市東区)",
+      "ud_type": "0",
+      "type": "0",
+      "ctype": "0",
+      "zahyo": "33.66431469394450,130.439804006140",
+      "label": "<p class='name busstop'>福岡女子大前<span class='kana'>ふくおかじょしだいまえ</span></p><p class='district'>福岡市東区</p>",
+      "icls": "busstop",
+      "city": "福岡市東区",
+      "name": "福岡女子大前",
+      "navi_type": "1"
+    }
+  ]
+}
