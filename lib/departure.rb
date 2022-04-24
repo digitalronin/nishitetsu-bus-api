@@ -43,7 +43,7 @@ class Departure
   end
 
   def expected_in
-    ((Time.now - expected_departure) / 60).to_i
+    ((expected_departure - Time.now) / 60).to_i
   end
 
   def expected_arrival
