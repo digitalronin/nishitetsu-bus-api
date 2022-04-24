@@ -5,6 +5,10 @@ class Departure
     @node = node
   end
 
+  def departs_from
+    node.css("p.busstop").first.text
+  end
+
   def route_number
     node.css("li.num").text  # e.g. 23
   end

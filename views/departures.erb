@@ -1,0 +1,35 @@
+<h1>Departures (<%= Time.now.strftime("%H:%M") %>)</h1>
+
+<h2><%= dp.journey_start %></h2>
+to
+<h2><%= dp.journey_end %></h2>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>Departs from</th>
+      <th>in (minutes)</th>
+      <th>Route</th>
+      <th>Should arrive at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% dp.departures.each do |d| %>
+      <% arrival = d.expected_arrival.strftime("%H:%M") %>
+      <tr>
+        <td><%= d.departs_from %></td>
+        <td align="middle"><%= d.expected_in %></td>
+        <td><%= d.route_number %> (<%= d.route_type %>)</td>
+        <td align="right"><%= arrival %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+  <a href="/to_tenjin">Home to Tenjin</a>
+  &nbsp;
+  <a href="/from_tenjin">Tenjin to Home</a>
+</p>
