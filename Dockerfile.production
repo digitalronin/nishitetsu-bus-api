@@ -1,5 +1,8 @@
 FROM ruby:3.1.2-alpine
 
+RUN apk add tzdata
+RUN cp /usr/share/zoneinfo/Japan /etc/localtime
+
 ARG APPUSER=appuser
 
 WORKDIR /app
