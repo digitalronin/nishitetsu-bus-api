@@ -2,6 +2,18 @@
 
 Attempting to use the Nishitetsu web interface to create a workable API for building a decent bus app.
 
+## Setup
+
+To build from scratch
+
+- Remove references to Gemfile.lock from Dockerfile and makefile
+- `make shell`
+- In the container shell, run `bundle install`
+- In a separate terminal, run `docker exec $(TAG) cat Gemfile.lock`
+- Edit the new Gemfile.lock and remove all lines before 'GEM'
+- Commit the Gemfile.lock
+- Replace references to Gemfile.lock in Dockerfile and makefile
+
 API base:
 
     http://busnavi01.nishitetsu.ne.jp/
