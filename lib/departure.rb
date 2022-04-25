@@ -1,6 +1,8 @@
 class Departure
   attr_reader :node
 
+  EXPRESS = "都市高"
+
   def initialize(node)  # node is a nokogiri node
     @node = node
   end
@@ -15,6 +17,10 @@ class Departure
 
   def route_type
     node.css("ul.label").css("li").first.text  # 都市高 / 普通
+  end
+
+  def express?
+    route_type == EXPRESS
   end
 
   def minutes_late
