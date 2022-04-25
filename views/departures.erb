@@ -14,37 +14,45 @@
   </div>
 </div>
 
-<table class="striped">
-  <thead>
-    <tr>
-      <th>in (minutes)</th>
-      <th>Route</th>
-      <th>Should arrive at</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% dp.departures.each do |d| %>
-      <% arrival = d.expected_arrival.strftime("%H:%M") %>
-      <tr>
-        <td><%= d.expected_in %></td>
-        <td>
+<ul class="collection with-header">
+  <li class="collection-header">
+    <div class="row">
+      <div class="col s2">in (min.)</div>
+      <div class="col s7"></div>
+      <div class="col s1">Should arrive</div>
+    </div>
+  </li>
+
+  <% dp.departures.each do |d| %>
+    <% arrival = d.expected_arrival.strftime("%H:%M") %>
+    <li class="collection-item">
+      <div class="row">
+        <div class="col s1 center-align"><%= d.expected_in %></div>
+
+        <div class="col s4 center-align">
           <a class="blue lighten-4 btn-flat">
             <%= d.route_number %>
           </a>
+        </div>
+        <div class="col s4 center-align">
           <% if d.express? then %>
             <span class="new badge red" data-badge-caption="<%= d.route_type %>"></span>
           <% else %>
             <span class="new badge" data-badge-caption="<%= d.route_type %>"></span>
           <% end %>
-        </td>
-        <td><%= arrival %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </div>
 
-<p>
-  <a href="/to_tenjin">Home to Tenjin</a>
-  &nbsp;
-  <a href="/from_tenjin">Tenjin to Home</a>
-</p>
+        <div class="col s1 center-align"><%= arrival %></div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<div class="row">
+  <div class="col s6 left-align">
+    <a href="/to_tenjin">Home to Tenjin</a>
+  </div>
+  <div class="col s6 right-align">
+    <a href="/from_tenjin">Tenjin to Home</a>
+  </div>
+</div>

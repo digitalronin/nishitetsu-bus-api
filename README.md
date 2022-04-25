@@ -65,5 +65,8 @@ Live departure information (html only):
 
 I think f_list and t_list are "from" and "to"
 
+## TODO
 
+- add reload link with icon where time is shown
+- replace 2 route links with a "reverse the journey" control
 
