@@ -35,6 +35,58 @@ Search for bus stop by name:
 
 Search for bus stops on a map (JSON):
 
+Westmost stop?
+西警察署前
+      "LATITUDE": "33.57516930218620",
+      "LONGITUDE": "130.272245026617",
+
+Southernmost stop?
+    {
+      "UPD_DATE": null,
+      "JIGYOSHA_NAME": "西鉄バス",
+      "TEI_KANA": "よしいえいぎょうしょ",
+      "UD_TYPE": "0",
+      "CITY_NAME": "福岡県うきは市",
+      "TEI_CD": "350590",
+      "JIGYOSHA_CD": "0001",
+      "TEI_NAME": "吉井営業所",
+      "TEI_NAME_FOREIGN": "吉井営業所",
+      "TEI_TYPE": "0",
+      "CITY_CD": "402257",
+      "AREA_TYPE": "chikugo",
+      "LATITUDE": "33.34210577252230",
+      "LONGITUDE": "130.761256146505",
+      "NORIBA_CD": null,
+      "COMMUNITY_TYPE": "0",
+      "NAVI_TYPE": "1"
+    }
+
+
+Eastmost stop?
+      "TEI_NAME": "有井",
+      "LATITUDE": "33.64997319344340",
+      "LONGITUDE": "130.724079057735",
+
+Northernmost stop? (kitakyushu)
+      "UPD_DATE": null,
+      "JIGYOSHA_NAME": "西鉄バス",
+      "TEI_KANA": "はつ",
+      "UD_TYPE": "0",
+      "CITY_NAME": "福岡県岡垣町",
+      "TEI_CD": "641050",
+      "JIGYOSHA_CD": "0001",
+      "TEI_NAME": "波津",
+      "TEI_NAME_FOREIGN": "波津",
+      "TEI_TYPE": "0",
+      "CITY_CD": "403831",
+      "AREA_TYPE": "kitakyushu",
+      "LATITUDE": "33.88467831141420",
+      "LONGITUDE": "130.565049457591",
+      "NORIBA_CD": null,
+      "COMMUNITY_TYPE": "0",
+      "NAVI_TYPE": "1"
+
+
 http://busnavi01.nishitetsu.ne.jp/map
 
 f: maptei
