@@ -7,7 +7,6 @@ require "debug"
 
 require "cgi"
 require "digest"
-require "json"
 require_relative "../lib/nishitetsu"
 
 MIN_LATITUDE  = 33.34210577252230
@@ -18,21 +17,20 @@ STEP_SIZE = 0.01
 
 def fetch_and_store(lat:, lon:)
   key = [lat, lon].join(", ")
-  puts "Fetching: #{key}"
-  api = Api.new
-  json = api.bus_stops_near_location(lat: lat, lon: lon, area: STEP_SIZE)
-  data = JSON.parse(json)
-  if data["List"].length > 0
-    filename = "data/bus-stops/#{Digest::SHA256.hexdigest(key)}.json"
-    File.write(filename, json)
+  filename = "data/bus-stops/#{Digest::SHA256.hexdigest(key)}.json"
+  if FileTest.exists?(filename)
+    puts "Already fetched data for #{key}"
   else
-    puts "  no bus stops found"
+    puts "Fetching: #{key}"
+    api = Api.new
+    json = api.bus_stops_near_location(lat: lat, lon: lon, area: STEP_SIZE)
+    File.write(filename, json)
+    sleep 1
   end
 end
 
 (MIN_LONGITUDE..MAX_LONGITUDE).step(STEP_SIZE).each do |lon|
   (MIN_LATITUDE..MAX_LATITUDE).step(STEP_SIZE).each do |lat|
     fetch_and_store(lat: lat, lon: lon)
-    sleep 1
   end
 end
