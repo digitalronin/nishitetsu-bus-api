@@ -4,14 +4,12 @@ Attempting to use the Nishitetsu web interface to create a workable API for buil
 
 ## Setup
 
-To build from scratch
+To rebuild from scratch
 
 - Remove references to Gemfile.lock from Dockerfile and makefile
 - `make shell`
 - In the container shell, run `bundle install`
-- In a separate terminal, run `docker exec $(TAG) cat Gemfile.lock`
-- Edit the new Gemfile.lock and remove all lines before 'GEM'
-- Commit the Gemfile.lock
+- In a separate terminal, add and commit the Gemfile.lock
 - Replace references to Gemfile.lock in Dockerfile and makefile
 
 ## Heroku setup
@@ -34,6 +32,19 @@ Search for bus stop by name:
     # ftKbn: j
     # jkeyword: 福岡女子大前
     # cflg: 0
+
+Search for bus stops on a map (JSON):
+
+http://busnavi01.nishitetsu.ne.jp/map
+
+f: maptei
+lat: 33.6636096
+lon: 130.4427449
+area: 0.014315256999992698
+tei_type[]: 0
+tei_type[]: 1
+
+f=maptei&lat=33.6636096&lon=130.4427449&area=0.014315256999992698&tei_type%5B%5D=0&tei_type%5B%5D=1
 
 
 Get bus route numbers for bus stop (html only :( ):
@@ -67,6 +78,11 @@ I think f_list and t_list are "from" and "to"
 
 ## TODO
 
+- iterate over the map and get all the bus stops that exist
+- iterate over all bus stops to get the lines they're on
+- draw bus stops on openstreetmap
+- draw bus routes on openstreetmap
+- enable searching for the single bus journey that best connects two points on the map
 - replace 2 route links with a "reverse the journey" control
 - use collapsible to display bus departures, and show more info when user taps
 
