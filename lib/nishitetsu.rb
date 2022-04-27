@@ -1,9 +1,11 @@
 require "debug" # TODO: remove
 
-require "time"
-require "net/http"
 require "cgi"
+require "digest"
+require "json"
+require "net/http"
 require "nokogiri"
+require "time"
 
 require_relative "./api"
 require_relative "./departure"

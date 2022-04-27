@@ -1,12 +1,8 @@
 #!/usr/bin/env ruby
 
-require "debug"
-
 # Script to iterate over a map grid and retrieve Nishitetsu bus stop
 # JSON data from their API.
 
-require "cgi"
-require "digest"
 require_relative "../lib/nishitetsu"
 
 MIN_LATITUDE  = 33.34210577252230
