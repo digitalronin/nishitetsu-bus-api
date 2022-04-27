@@ -8,7 +8,6 @@ shell: .built
 	docker run --rm \
 		-w /app \
 		-v $$(pwd):/app \
-		--name $(TAG) \
 		-it $(TAG) bash
 
 # Run `make shell` in another terminal, then
