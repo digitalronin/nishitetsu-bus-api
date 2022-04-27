@@ -28,7 +28,6 @@ git push heroku main
 - enable searching for the single bus journey that best connects two points on the map
 - replace 2 route links with a "reverse the journey" control
 - use collapsible to display bus departures, and show more info when user taps
-- make the minute numbers bigger
 - make the refresh link into a button
 - add a favicon
 
