@@ -14,6 +14,21 @@ class Api
     Net::HTTP.get(URI(bus_stop_map_url(lat: lat, lon: lon, area: area)))
   end
 
+  # key = [bus_stop["JIGYOSHA_CD"], bus_stop["TEI_CD"]].join(",")
+  # e.g. 0001,660102
+  def bus_routes_for_stop(key)
+    params = {
+      f: "busikisaki",
+      list: key,
+      ns: 1,
+      tei_type: 0
+    }
+
+    url = "#{API_URL}/busroute?#{querystring(params)}"
+
+    Net::HTTP.get(URI(url))
+  end
+
   private
 
   def bus_stop_map_url(lat:, lon:, area:)
@@ -48,8 +63,10 @@ class Api
       syosaiFlg: 0,
     }
 
-    querystring = params.map {|k,v| "#{k}=#{CGI.escape(v.to_s)}"}.join("&")
+    "#{API_URL}/route?#{querystring(params)}"
+  end
 
-    "#{API_URL}/route?#{querystring}"
+  def querystring(params)
+    params.map {|k,v| "#{k}=#{CGI.escape(v.to_s)}"}.join("&")
   end
 end

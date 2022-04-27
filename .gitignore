@@ -1,2 +1,3 @@
 .built
 data/bus-stops/*.json
+data/bus-numbers/*.json
