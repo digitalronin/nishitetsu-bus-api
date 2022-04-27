@@ -27,3 +27,6 @@ server: .built
 
 deploy:
 	git push heroku main
+
+data/fukuoka-bus-stops.json: data/bus-stops/*.json
+	bin/filter-and-de-dupe-bus-stops.rb
