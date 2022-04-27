@@ -30,3 +30,6 @@ deploy:
 
 data/fukuoka-bus-stops.json: data/bus-stops/*.json
 	bin/filter-and-de-dupe-bus-stops.rb
+
+data/fukuoka-bus-stops-with-routes.json: data/bus-numbers/*.json
+	bin/create-stops-with-numbers-list.rb
