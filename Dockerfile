@@ -5,7 +5,8 @@ ARG APPUSER=appuser
 RUN apk add \
   bash \
   gettext \
-  tzdata
+  tzdata \
+  make
 
 RUN cp /usr/share/zoneinfo/Japan /etc/localtime
 
