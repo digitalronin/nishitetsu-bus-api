@@ -7,11 +7,11 @@ class Api
 
   # Returns HTML
   def live_departures(from:, to:)
-    Net::HTTP.get(URI(departures_url(from: from, to: to)))
+    Net::HTTP.get(URI(departures_url(from:, to:)))
   end
 
   def bus_stops_near_location(lat:, lon:, area:)
-    Net::HTTP.get(URI(bus_stop_map_url(lat: lat, lon: lon, area: area)))
+    Net::HTTP.get(URI(bus_stop_map_url(lat:, lon:, area:)))
   end
 
   # key = [bus_stop["JIGYOSHA_CD"], bus_stop["TEI_CD"]].join(",")
@@ -26,7 +26,9 @@ class Api
 
     url = "#{API_URL}/busroute?#{querystring(params)}"
 
-    Net::HTTP.get(URI(url))
+    html = Net::HTTP.get(URI(url))
+    doc = Nokogiri::HTML(html)
+    doc.css("li.num").map(&:text).uniq
   end
 
   private
