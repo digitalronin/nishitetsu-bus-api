@@ -6,6 +6,7 @@ RUN apk add \
   bash \
   gettext \
   tzdata \
+  jq \
   make
 
 RUN cp /usr/share/zoneinfo/Japan /etc/localtime
