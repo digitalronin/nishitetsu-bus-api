@@ -1,0 +1,7 @@
+curl -X POST --data f=maptei \
+  --data lat=33.6631434 \
+	--data lon=130.4389057 \
+	--data area=0.009604779000000008 \
+	--data-urlencode tei_type[]=0 \
+	--data-urlencode tei_type[]=1 \
+  http://busnavi01.nishitetsu.ne.jp/map | jq -C | less -R
